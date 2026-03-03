@@ -1,3 +1,7 @@
+let humanScore = 0;
+let computerScore = 0;
+
+
 let getComputerChoice = ()=>{
     const minCeiled = Math.ceil(1);
     const maxFloored = Math.floor(4);
@@ -16,8 +20,24 @@ let getComputerChoice = ()=>{
     }
     return numberToMove();
 }
-console.log(getComputerChoice());
+// console.log(getComputerChoice());
 
-// let getHumanChoice = ()=>{
+let getHumanChoice = ()=>{
+    let text = prompt("What's your choice? ");
+    let choice = text.toLowerCase();
+    // console.log(choice);
+    return choice;
+}
+// console.log(getHumanChoice());
 
-// }s
+let playRound = (humanChoice,computerChoice)=>{
+    console.log("This is human choice: " + humanChoice);
+    // console.log(computerChoice);
+    return [humanChoice,computerChoice];
+}
+
+const humanSelection = getHumanChoice();
+console.log(humanSelection);
+const computerSelection = getComputerChoice();
+
+console.log(playRound(humanSelection, computerSelection));
