@@ -9,6 +9,7 @@ rock.addEventListener("click", () => {
     newDiv.classList.add("selection");
     newDiv.textContent = "Rock";
     container.appendChild(newDiv);
+    return "Rock";
 });
 
 paper.addEventListener("click", () =>{
@@ -23,3 +24,23 @@ scissors.addEventListener("click", ()=>{
     container.appendChild(newDiv);
 });
 
+let getComputerChoice = ()=>{
+    const minCeiled = Math.ceil(1);
+    const maxFloored = Math.floor(4);
+    let number = Math.floor(Math.random() *(maxFloored -minCeiled) + minCeiled);
+   
+    let numberToMove= ()=>{
+        if(number === 1){
+            return "Rock";
+        }
+        else if (number ===2) {
+            return "Paper";
+        }
+        else{
+            return "Scissors";
+        }
+    }
+    return numberToMove();
+};
+console.log(getComputerChoice());
+console.log(newDiv.textContent);
