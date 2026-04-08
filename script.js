@@ -5,7 +5,11 @@ const container = document.querySelector(".btn-container")
 
 const newDiv = document.createElement("div");
 
-let round = () => {
+let playerScore = 0;
+let computerScore =0;
+
+// event listener that listens to clicks on rps button 
+
     let getHumanChoice = container.addEventListener('click', (event) => {
         let target = event.target;
         let humanChoice = null; 
@@ -32,10 +36,12 @@ let round = () => {
                     console.log(`this is human selection : ${humanChoice}`);
                     break;
             }
-            let getComputerChoice = ()=>{
-                const minCeiled = Math.ceil(1);
-                const maxFloored = Math.floor(4);
-                let number = Math.floor(Math.random() *(maxFloored -minCeiled) + minCeiled);
+// function to get computer choice 
+
+    let getComputerChoice = ()=>{
+            const minCeiled = Math.ceil(1);
+            const maxFloored = Math.floor(4);
+            let number = Math.floor(Math.random() *(maxFloored -minCeiled) + minCeiled);
                
                 let numberToMove= ()=>{
                     if(number === 1){
@@ -47,38 +53,75 @@ let round = () => {
                     else{
                         return "Scissors";
                     }
-                }
+                }  
                 return numberToMove();
             }; 
-            let ComputerChoice = getComputerChoice();
-            console.log(`this is computer selection ${ComputerChoice}`);
             
+    let ComputerChoice = getComputerChoice();
+    console.log(`this is computer selection ${ComputerChoice}`);
+            
+           
+// logic to get the winner and iterate the scores
+    if( playerScore < 3 && computerScore < 3 ){
             if (ComputerChoice == "Rock" & humanChoice == "Paper") {
-                return console.log("human win");
+                playerScore++;
+                console.log(`player score : ${playerScore}`);
+                console.log(`computer score: ${computerScore}`);
+                console.log("human win");
+                // return playerScore++;
             }
             else if (ComputerChoice == "Paper" & humanChoice == "Scissors") {
-                return console.log("human win");
+                playerScore++;
+                console.log(`player score : ${playerScore}`);
+                console.log(`computer score: ${computerScore}`);
+                console.log("human win");
+                // return playerScore++;
             } 
             else if (ComputerChoice == "Scissors" & humanChoice == "Rock") {
-                return console.log("human win");
-                
+                playerScore++;
+                console.log(`player score : ${playerScore}`);
+                console.log(`computer score: ${computerScore}`);
+                console.log("human win");
+                // return playerScore++;
             }
             else if (ComputerChoice == "Rock" & humanChoice == "Scissors") {
-                return console.log("Computer win");
+                computerScore++;
+                console.log(`player score : ${playerScore}`);
+                console.log(`computer score: ${computerScore}`);
+                console.log("Computer win");
+                // return computerScore++;
             }
             else if (ComputerChoice == "Paper" & humanChoice == "Rock") {
-                return console.log("Computer win");
+                computerScore++;
+                console.log(`player score : ${playerScore}`);
+                console.log(`computer score: ${computerScore}`);
+                console.log("Computer win");
+                // return computerScore++;
             }
             else if (ComputerChoice == "Scissors" & humanChoice == "Paper") {
-                return console.log("Computer win");
+                computerScore++;
+                console.log(`player score : ${playerScore}`);
+                console.log(`computer score: ${computerScore}`);
+                console.log("Computer win");
+                // return computerScore++;
             }else {
-                return console.log("Draw");
+                console.log(`player score : ${playerScore}`);
+                console.log(`computer score: ${computerScore}`);
+                console.log("Draw");
             }
-            });
-        };
-round();
-    
-        
-    
+        } 
+        else{
+            console.log( console.log(`player score : ${playerScore} computer score : ${computerScore}`) );
+            return 0 ;
+        }
+            
+    });   
+  ;
+
+           
+ // What about a playRound function that takes in humanChoice and ComputerChoice and everytime the function  
+
+
+
 
   
